@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Book</title>
+    <!-- All css here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <!-- search box -->
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8 mt-5">
+                    <h3 class="text-center">Search Your Favorite Book</h3>
+                    <div class="input-group mt-3 mb-4">
+                        <input id="inputValue" type="text" class="form-control" placeholder="Tpye...">
+                        <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+                    </div>
+                    <div id="totalFound" class="mb-5"></div>
+                </div>
+            </div>
+            <!-- book list -->
+            <div id="showBook" class="row"></div>
+        </div>
+    </main>
+    <!-- All js here -->
+    <script src="js/main.js"></script>
+</body>
+</html>
