@@ -15,7 +15,7 @@ searchBtn.addEventListener('click', () =>{
 
 
 const infoCheck = (list, massage) =>{
-    if(list.length > 0){
+    if (list) {
         return list[0];
     }else{
         return `${massage} Not Found`;
@@ -42,8 +42,14 @@ const showResult = data =>{
         const bookName = element.title;
 
         //publish date
-        const publishDateList = element.publish_date;
-        let publishDate = infoCheck(publishDateList, 'Date');
+        const firstPublish = element.first_publish_year;
+        const publishDate = date =>{
+            if (date) {
+                return date;
+            }else{
+                return "Date Not Found";
+            }
+        };
 
         //author name
         const authorList = element.author_name;
@@ -63,7 +69,7 @@ const showResult = data =>{
             <div class="card-body">
                 <h4>${bookName}</h4>
                 <h6>Author Name: ${authorName}</h6>
-                <p>Publish Date: ${publishDate}</p>
+                <p>1st Publish: ${publishDate(firstPublish)}</p>
                 <p>Publisher: ${publisher}</p>
             </div>
         </div>
