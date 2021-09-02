@@ -15,3 +15,13 @@
 .card {
     height: 100%;
 }
+.card-body h4 {
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+.card-body p {
+    margin-bottom: 0px;
+}
+.card-body p span {
+    font-weight: 600;
+}

@@ -7,7 +7,7 @@ searchBtn.addEventListener('click', () =>{
     showBook.innerHTML = '';
     totalFound.innerHTML = '';
     const searchText = inputId.value;
-    fetch(`http://openlibrary.org/search.json?q=${searchText}`)
+    fetch(`https://openlibrary.org/search.json?q=${searchText}`)
     .then(res => res.json())
     .then(data => showResult(data))
     .finally(() => inputId.value='');
@@ -24,8 +24,6 @@ const infoCheck = (list, massage) =>{
 
 //show result
 const showResult = data =>{
-    console.log(data);
-
     if (data.docs.length === 0) {
         showBook.innerHTML = '<h5 class="text-center">No Result Found</h5>';
     }else{
@@ -35,7 +33,7 @@ const showResult = data =>{
     data.docs?.forEach(element => {
         //cover image
         const coverId = element.cover_i;
-        let bookCoverurl = "#";
+        let bookCoverurl = "../img/not-found.jpg";
         if (coverId) {
             bookCoverurl = `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`;
         }
@@ -68,15 +66,13 @@ const showResult = data =>{
             </div>
             <div class="card-body">
                 <h4>${bookName}</h4>
-                <h6>Author Name: ${authorName}</h6>
-                <p>1st Publish: ${publishDate(firstPublish)}</p>
-                <p>Publisher: ${publisher}</p>
+                <p><span>Author Name:</span> ${authorName}</p>
+                <p><span>1st Publish:</span> ${publishDate(firstPublish)}</p>
+                <p><span>Publisher:</span> ${publisher}</p>
             </div>
         </div>
         `;
-        
         showBook.appendChild(div);
-            
     });
 
 }
